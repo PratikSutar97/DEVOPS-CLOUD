@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { fetchProducts } from "../firebase/products";
+import { CategoryProductCardSkeleton } from "../components/Skeleton";
 
 function ProductImageCarousel({ images, productName }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -61,11 +62,13 @@ export default function CategoryPage() {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [sortOrder, setSortOrder] = useState("default");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchProducts().then(all =>
-      setProducts(all.filter(p => p.category === categoryName))
-    );
+    setLoading(true);
+    fetchProducts()
+      .then(all => setProducts(all.filter(p => p.category === categoryName)))
+      .finally(() => setLoading(false));
   }, [categoryName]);
 
   const sortedProducts = [...products].sort((a, b) => {
@@ -102,19 +105,25 @@ export default function CategoryPage() {
 
       {/* ✅ GRID CONTAINER */}
       <div className="products-grid">
-        {sortedProducts.map(p => (
-          <div key={p.id} className="category-product-card">
-            <ProductImageCarousel images={p.images} productName={p.name} />
-            <h3>{p.name}</h3>
-            <p className="price">₹{p.price}</p>
-            <button
-              className="buy-btn"
-              onClick={() => window.open(p.link, "_blank")}
-            >
-              View Details & Buy
-            </button>
-          </div>
-        ))}
+        {loading ? (
+          [...Array(6)].map((_, i) => (
+            <CategoryProductCardSkeleton key={i} />
+          ))
+        ) : (
+          sortedProducts.map(p => (
+            <div key={p.id} className="category-product-card">
+              <ProductImageCarousel images={p.images} productName={p.name} />
+              <h3>{p.name}</h3>
+              <p className="price">₹{p.price}</p>
+              <button
+                className="buy-btn"
+                onClick={() => window.open(p.link, "_blank")}
+              >
+                View Details & Buy
+              </button>
+            </div>
+          ))
+        )}
       </div>
     </div>
   );
