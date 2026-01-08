@@ -275,6 +275,107 @@ body.dark .product-card img {
 }
 
 /* =========================
+   IMAGE CAROUSEL
+========================= */
+.product-image-carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-images {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-images img {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: #f7f7f7;
+}
+
+.category-product-card .carousel-images img {
+  height: 200px;
+  margin-bottom: 12px;
+}
+
+body.dark .carousel-images img {
+  background: #111;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s ease, background 0.2s ease;
+}
+
+.product-image-carousel:hover .carousel-btn {
+  opacity: 1;
+}
+
+.carousel-btn:hover {
+  background: rgba(255, 102, 0, 0.8);
+}
+
+.carousel-prev {
+  left: 4px;
+}
+
+.carousel-next {
+  right: 4px;
+}
+
+.carousel-dots {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 2;
+}
+
+.category-product-card .carousel-dots {
+  bottom: 20px;
+}
+
+.carousel-dots .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-dots .dot:hover {
+  transform: scale(1.2);
+}
+
+.carousel-dots .dot.active {
+  background: #ff6600;
+}
+
+/* =========================
    CATEGORY PAGE LAYOUT
 ========================= */
 .category-page {
@@ -307,7 +408,7 @@ body.dark .product-card img {
   box-shadow: 0 20px 35px rgba(0,0,0,0.25);
 }
 
-.category-product-card img {
+.category-product-card > img {
   width: 100%;
   height: 200px;
   object-fit: contain;
@@ -337,7 +438,7 @@ body.dark .category-product-card {
     0 0 0 1px rgba(255,102,0,0.15);
 }
 
-body.dark .category-product-card img {
+body.dark .category-product-card > img {
   background: #111;
 }
 
