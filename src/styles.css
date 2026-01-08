@@ -57,6 +57,44 @@ body.dark {
 }
 
 /* =========================
+   SEARCH BAR
+========================= */
+.search-bar {
+  padding: 14px;
+  display: flex;
+  justify-content: center;
+}
+
+.search-bar input {
+  width: 100%;
+  max-width: 500px;
+  padding: 12px 16px;
+  border-radius: 24px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  outline: none;
+}
+
+.search-bar input:focus {
+  border-color: #ff6600;
+}
+
+body.dark .search-bar input {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  color: #eee;
+}
+
+/* No results */
+.no-results {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 16px;
+  color: #888;
+}
+
+
+/* =========================
    LOGO POSITION & SIZE FIX
 ========================= */
 
