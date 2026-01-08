@@ -383,6 +383,70 @@ body.dark .carousel-images img {
   min-height: 80vh;
 }
 
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.category-header .category-title {
+  margin: 0;
+}
+
+.sort-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sort-filter label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+}
+
+.sort-filter select {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sort-filter select:hover {
+  border-color: #ff6600;
+}
+
+.sort-filter select:focus {
+  outline: none;
+  border-color: #ff6600;
+  box-shadow: 0 0 0 2px rgba(255, 102, 0, 0.2);
+}
+
+body.dark .sort-filter label {
+  color: #aaa;
+}
+
+body.dark .sort-filter select {
+  background: #1e1e1e;
+  border-color: #444;
+  color: #fff;
+}
+
+body.dark .sort-filter select:hover {
+  border-color: #ff6600;
+}
+
+body.dark .sort-filter select:focus {
+  border-color: #ff6600;
+  box-shadow: 0 0 0 2px rgba(255, 102, 0, 0.3);
+}
+
 .products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));

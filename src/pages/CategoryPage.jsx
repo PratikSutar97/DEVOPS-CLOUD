@@ -60,6 +60,7 @@ export default function CategoryPage() {
   const { categoryName } = useParams();
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
+  const [sortOrder, setSortOrder] = useState("default");
 
   useEffect(() => {
     fetchProducts().then(all =>
@@ -67,17 +68,41 @@ export default function CategoryPage() {
     );
   }, [categoryName]);
 
+  const sortedProducts = [...products].sort((a, b) => {
+    if (sortOrder === "low-to-high") {
+      return (parseFloat(a.price) || 0) - (parseFloat(b.price) || 0);
+    }
+    if (sortOrder === "high-to-low") {
+      return (parseFloat(b.price) || 0) - (parseFloat(a.price) || 0);
+    }
+    return 0;
+  });
+
   return (
     <div className="category-page">
       <button className="back-btn" onClick={() => navigate("/")}>
         ← Back to Home
       </button>
 
-      <h2 className="category-title">{categoryName}</h2>
+      <div className="category-header">
+        <h2 className="category-title">{categoryName}</h2>
+        <div className="sort-filter">
+          <label htmlFor="sort-select">Sort by Price:</label>
+          <select
+            id="sort-select"
+            value={sortOrder}
+            onChange={(e) => setSortOrder(e.target.value)}
+          >
+            <option value="default">Default</option>
+            <option value="low-to-high">Low to High</option>
+            <option value="high-to-low">High to Low</option>
+          </select>
+        </div>
+      </div>
 
       {/* ✅ GRID CONTAINER */}
       <div className="products-grid">
-        {products.map(p => (
+        {sortedProducts.map(p => (
           <div key={p.id} className="category-product-card">
             <ProductImageCarousel images={p.images} productName={p.name} />
             <h3>{p.name}</h3>
