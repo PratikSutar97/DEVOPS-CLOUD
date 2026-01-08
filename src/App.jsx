@@ -5,6 +5,7 @@ import CategoryPage from "./pages/CategoryPage";
 import AdminLogin from "./admin/AdminLogin";
 import AdminDashboard from "./admin/AdminDashboard";
 import "./styles.css";
+import logo from "./assets/logo.png";
 
 export default function App() {
   const [dark, setDark] = useState(
@@ -23,7 +24,7 @@ export default function App() {
     <Link to="/" className="brand-link">
       <div className="logo-wrapper">
         <img
-          src="/src/assets/logo.png"
+          src={logo}
           alt="Useful Products"
           className="site-logo"
         />
