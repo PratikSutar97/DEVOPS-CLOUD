@@ -2,13 +2,17 @@ import { useEffect, useState } from "react";
 import { fetchProducts } from "../firebase/products";
 import CategorySection from "../components/CategorySection";
 import CategoryBar from "../components/CategoryBar";
+import { CategorySectionSkeleton, CategoryBarSkeleton } from "../components/Skeleton";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchProducts().then(setProducts);
+    fetchProducts()
+      .then(setProducts)
+      .finally(() => setLoading(false));
   }, []);
 
   /* 🔍 SEARCH FILTER */
@@ -39,20 +43,31 @@ export default function Home() {
         />
       </div>
 
-      <CategoryBar categories={categories} />
+      {loading ? (
+        <>
+          <CategoryBarSkeleton />
+          {[...Array(3)].map((_, i) => (
+            <CategorySectionSkeleton key={i} />
+          ))}
+        </>
+      ) : (
+        <>
+          <CategoryBar categories={categories} />
 
-      {categories.length === 0 && (
-        <p className="no-results">No products found</p>
+          {categories.length === 0 && (
+            <p className="no-results">No products found</p>
+          )}
+
+          {categories.map(cat => (
+            <CategorySection
+              key={cat}
+              title={cat}
+              products={grouped[cat]}
+              hideViewAll={!!search}
+            />
+          ))}
+        </>
       )}
-
-      {categories.map(cat => (
-        <CategorySection
-          key={cat}
-          title={cat}
-          products={grouped[cat]}
-          hideViewAll={!!search}
-        />
-      ))}
     </>
   );
 }
