@@ -1,0 +1,199 @@
+/* =========================
+   THEME VARIABLES
+========================= */
+
+:root {
+  --modal-bg: #ffffff;
+  --modal-text: #111111;
+  --overlay-bg: rgba(0, 0, 0, 0.7);
+  --btn-bg: #000000;
+  --btn-text: #ffffff;
+}
+
+body.dark,
+body.dark-mode {
+  --modal-bg: #1e1e1e;
+  --modal-text: #f5f5f5;
+  --overlay-bg: rgba(0, 0, 0, 0.85);
+  --btn-bg: #ffffff;
+  --btn-text: #000000;
+}
+
+/* =========================
+   OVERLAY
+========================= */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--overlay-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 10px;
+}
+
+/* =========================
+   MODAL CONTAINER
+========================= */
+
+.modal-container {
+  background: var(--modal-bg);
+  color: var(--modal-text);
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  border-radius: 12px;
+  padding: 14px;
+  position: relative;
+  overflow-y: auto;
+}
+
+/* =========================
+   CLOSE BUTTON
+========================= */
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  font-size: 22px;
+  background: none;
+  border: none;
+  color: var(--modal-text);
+  cursor: pointer;
+}
+
+/* =========================
+   CONTENT LAYOUT
+========================= */
+
+.modal-content {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+/* =========================
+   IMAGE SLIDER (FIXED)
+========================= */
+
+.modal-image-section {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  max-height: 420px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5f5f5;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+body.dark .modal-image-section {
+  background: #2a2a2a;
+}
+
+.modal-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* 🔥 KEY FIX */
+}
+
+/* =========================
+   SLIDER BUTTONS
+========================= */
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border: none;
+  font-size: 22px;
+  padding: 6px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.nav-btn.left {
+  left: 8px;
+}
+
+.nav-btn.right {
+  right: 8px;
+}
+
+/* =========================
+   DETAILS
+========================= */
+
+.modal-details {
+  flex: 1;
+}
+
+.modal-details h2 {
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.modal-price {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.modal-description {
+  font-size: 14px;
+  line-height: 1.5;
+  opacity: 0.85;
+  margin-bottom: 20px;
+}
+
+/* =========================
+   BUY BUTTON
+========================= */
+
+.buy-btn {
+  width: 100%;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/* =========================
+   TABLET & MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  .modal-content {
+    flex-direction: column;
+  }
+
+  .modal-image-section {
+    max-width: 100%;
+    max-height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-container {
+    padding: 12px;
+  }
+
+  .modal-image-section {
+    max-height: 260px;
+  }
+
+  .modal-details h2 {
+    font-size: 18px;
+  }
+}
+
