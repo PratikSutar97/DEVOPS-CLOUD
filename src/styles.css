@@ -9,6 +9,32 @@
 .brand-link:hover {
   opacity: 0.9;
 }
+.home-intro {
+  max-width: 900px;
+  margin: 20px auto 30px;
+  padding: 0 16px;
+  color: #333;
+  align-items: center;
+}
+.category-intro {
+  max-width: 900px;
+  margin: 8px 0 16px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.home-intro h1 {
+  
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.home-intro p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
 
 /* Center title clickable without shifting layout */
 .brand-title {
