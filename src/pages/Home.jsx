@@ -3,6 +3,7 @@ import { fetchProducts } from "../firebase/products";
 import CategorySection from "../components/CategorySection";
 import CategoryBar from "../components/CategoryBar";
 import { CategorySectionSkeleton, CategoryBarSkeleton } from "../components/Skeleton";
+import { Helmet } from "react-helmet-async"; // ✅ SEO import
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -33,7 +34,17 @@ export default function Home() {
 
   return (
     <>
-      {/* 🔍 SEARCH BOX */}
+      {/* ✅ SEO ONLY – SAFE */}
+      <Helmet>
+        <title>Useful Amazon Products | Daily Life Gadgets & Deals</title>
+        <meta
+          name="description"
+          content="Discover useful Amazon products for daily life. Handpicked gadgets, home essentials, decor items, and budget-friendly deals."
+        />
+        <meta name="robots" content="index, follow" />
+      </Helmet>
+
+      {/* 🔍 SEARCH BOX (ORIGINAL UI – UNCHANGED) */}
       <div className="search-bar">
         <input
           type="text"
@@ -42,7 +53,20 @@ export default function Home() {
           onChange={e => setSearch(e.target.value)}
         />
       </div>
+          {/* ✅ SEO INTRO TEXT (SAFE POSITION) */}
+    <section className="home-intro">
+      <h1>Useful Amazon Products for Daily Life</h1>
 
+      <p>
+        We curate useful Amazon products that solve everyday problems. From home
+        decor items and kitchen gadgets to budget-friendly tools, our goal is to
+        help you find practical, affordable products quickly.
+      
+        All products are handpicked based on usefulness, popularity, and value
+        for money. We regularly update our collections to include trending and
+        highly rated Amazon finds.
+      </p>
+    </section>
       {loading ? (
         <>
           <CategoryBarSkeleton />
@@ -68,7 +92,7 @@ export default function Home() {
           ))}
         </>
       )}
+    
     </>
   );
 }
-
