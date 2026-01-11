@@ -34,6 +34,7 @@ export default function Home() {
 
   return (
     <>
+
       {/* ✅ SEO ONLY – SAFE */}
       <Helmet>
         <title>Useful Amazon Products | Daily Life Gadgets & Deals</title>
@@ -45,6 +46,10 @@ export default function Home() {
       </Helmet>
 
       {/* 🔍 SEARCH BOX (ORIGINAL UI – UNCHANGED) */}
+
+      {/* 🔍 SEARCH BOX */}
+      
+
       <div className="search-bar">
         <input
           type="text"
