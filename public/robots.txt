@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://usefullproducts.netlify.app/sitemap.xml
+
