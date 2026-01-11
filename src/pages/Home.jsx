@@ -34,7 +34,7 @@ export default function Home() {
   return (
     <>
       {/* 🔍 SEARCH BOX */}
-      <meta name="google-site-verification" content="EYH2rcIV45412iScORQay2BdTPKo2QWnHyKRehIIqy8" />
+      
       <div className="search-bar">
         <input
           type="text"
