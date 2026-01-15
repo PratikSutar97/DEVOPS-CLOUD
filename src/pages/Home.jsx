@@ -37,7 +37,7 @@ export default function Home() {
 
       {/* ✅ SEO ONLY – SAFE */}
       <Helmet>
-        <title>Useful Amazon Products | Daily Life Gadgets & Deals</title>
+        <title>Useful Products | Daily Life Gadgets & Deals</title>
         <meta
           name="description"
           content="Discover useful Amazon products for daily life. Handpicked gadgets, home essentials, decor items, and budget-friendly deals."
@@ -60,11 +60,11 @@ export default function Home() {
       </div>
           {/* ✅ SEO INTRO TEXT (SAFE POSITION) */}
     <section className="home-intro">
-      <h1>Useful Amazon Products for Daily Life</h1>
+      <h1>Useful Products for Daily Life Gadgets</h1>
 
       <p>
-        We curate useful Amazon products that solve everyday problems. From home
-        decor items and kitchen gadgets to budget-friendly tools, our goal is to
+        We curate useful daily life products from internet that solve everyday problems. From home
+        decor items and kitchen gadgets to budget-friendly tools, Electronic Items, our goal is to
         help you find practical, affordable products quickly.
       
         All products are handpicked based on usefulness, popularity, and value
