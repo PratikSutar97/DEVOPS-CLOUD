@@ -60,7 +60,7 @@ export default function Home() {
       </div>
           {/* ✅ SEO INTRO TEXT (SAFE POSITION) */}
     <section className="home-intro">
-      <h1>Useful Products for Daily Life Gadgets</h1>
+      <h1>Useful Products for Daily Life Needs | Easy Search | Various Categories</h1>
 
       <p>
         We curate useful daily life products from internet that solve everyday problems. From home
@@ -69,8 +69,9 @@ export default function Home() {
       
         All products are handpicked based on usefulness, popularity, and value
         for money. We regularly update our collections to include trending and
-        highly rated Amazon finds.
+        highly rated Amazon finds. 
       </p>
+        <h2 > Just Search ,  View Details and Buy !!!!!!</h2>
     </section>
       {loading ? (
         <>

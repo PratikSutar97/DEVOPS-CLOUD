@@ -34,14 +34,16 @@ export default function App() {
 
   {/* CENTER: SITE NAME */}
   <Link to="/" className="brand-link brand-title">
-    <div className="logo">USEFULL PRODUCTS</div>
+    <div className="logo"><h1>USEFULL PRODUCTS</h1></div>
   </Link>
   {/* RIGHT: THEME TOGGLE */}
   <button
     className="theme-toggle"
     onClick={() => setDark(!dark)}
   >
-    {dark ? "☀️ Light" : "🌙 Dark"}
+     <span className="icon">{dark ? "☀️" : "🌙"}</span>
+  <span className="text">{dark ? "Light" : "Dark"}</span>
+    {/* {dark ? "☀️ Light" : "🌙 Dark"} */}
   </button>
 </header>
 

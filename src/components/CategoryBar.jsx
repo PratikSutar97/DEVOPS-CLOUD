@@ -10,6 +10,9 @@ export default function CategoryBar({ categories }) {
 
   return (
     <div className="category-bar">
+      <section className="searchByCategories">
+        <h1>Search By Categories</h1>
+      </section>
       {categories.map(cat => (
         <button
           key={cat}
