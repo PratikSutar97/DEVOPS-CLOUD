@@ -47,4 +47,8 @@ jobs:
             --exit-code 1 \
             --severity HIGH,CRITICAL \
             $IMAGE_NAME:$SHA_SHORT
-
+      - name: Login to Docker Hub
+        run: |
+          echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login \
+            -u "${{ secrets.DOCKERHUB_USERNAME }}" \
+            --password-stdin
