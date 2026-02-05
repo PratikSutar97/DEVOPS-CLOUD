@@ -22,5 +22,4 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             cd /home/ec2-user/deploy
-            ./deploy.sh ${{ github.event.workflow_run.head_sha }}
-
+            ./deploy.sh $(echo ${{ github.event.workflow_run.head_sha }} | cut -c1-7)
