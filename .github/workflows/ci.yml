@@ -21,4 +21,15 @@ jobs:
         run: |
           echo "Commit SHA: $GITHUB_SHA"
           echo "Repository: $GITHUB_REPOSITORY"
+      - name: Set image tag variables
+        id: vars
+        run: |
+          echo "SHA_SHORT=${GITHUB_SHA::7}" >> $GITHUB_ENV
+          echo "IMAGE_NAME=${{ secrets.DOCKERHUB_USERNAME }}/infospherre-frontend" >> $GITHUB_ENV
 
+      - name: Build Docker image
+        run: |
+          docker build \
+            -t $IMAGE_NAME:$SHA_SHORT \
+            -t $IMAGE_NAME:latest \
+            .
