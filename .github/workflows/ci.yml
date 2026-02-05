@@ -33,3 +33,17 @@ jobs:
             -t $IMAGE_NAME:$SHA_SHORT \
             -t $IMAGE_NAME:latest \
             .
+      - name: Install Trivy
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y wget
+          wget https://github.com/aquasecurity/trivy/releases/latest/download/trivy_0.49.1_Linux-64bit.deb
+          sudo dpkg -i trivy_0.49.1_Linux-64bit.deb
+
+      - name: Run Trivy vulnerability scan
+        run: |
+          trivy image \
+            --exit-code 1 \
+            --severity HIGH,CRITICAL \
+            $IMAGE_NAME:$SHA_SHORT
+
